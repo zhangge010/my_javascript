@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        var str='hello world';
+        console.log(str.length);
+        console.log(str.charAt(1));//e获取指定的字符
+        console.log(str.charCodeAt(1));//101获取到指定字符的编码
+        console.log(str.concat('zhangge','ge'));//不使用这个作为拼接，使用+来做多个字符串拼接
+        var str2='   zhaNgSan '
+        console.log(str2.trim())//清除字符串的空格
+        console.log(str2)
+        console.log(str2.toLowerCase())
+        console.log(str2.toUpperCase())*/
+
+        // var now=new Date();
+        // console.log(now)
+        // var xmas1 = new Date('December 25,1991 13:30:20');
+        // console.log(xmas1)
+        // var xmas2 = new Date(1995,11,25);
+        // console.log(xmas2);
+        // var xmas3 = new Date(1995,11,25,13,30,0)
+        // console.log(xmas3)
+        //查找某个字符在字符串中的所有位置
+        /*
+        var str='daasdgfaewuinjkcasbdvuroarnelkanebbvuoredsaaaae.'
+        var a=[]
+        var position=str.indexOf('a');
+        console.log(position)
+        while (position >-1){
+            a.push(position);
+            position=str.indexOf('a',position+1)
+        };
+        console.log(a);*/
+        /*
+        var now=new Date()
+        //常用方法
+        console.log(now.getDate());//获取月份的第几天(1-31)
+        console.log(now.getMonth());//获取月份(0-11)
+        console.log(now.getFullYear());//获取年份
+        console.log(now.getDay());//获取一周中的第几天（0-6），0是周天
+        console.log(now.getHours())//获取小时（0-23）
+        console.log(now.getMinutes())//获取分钟（0-59）
+        console.log(now.getSeconds())//获取秒（0-59）
+        //日期格式化方法
+        console.log(now.toDateString())//Tue May 21 2019
+        console.log(now.toTimeString())//17:48:38 GMT+0800 (中国标准时间)
+        //常用的方法
+        console.log(now.toLocaleDateString() )//2019/5/21
+        console.log(now.toLocaleTimeString() )//下午5:48:38
+        console.log(now.toLocaleString())//2019/5/21 下午5:49:48*/
+
+        function nowNumTime() {
+            var now = new Date();
+            var hour=now.getHours();
+            var minute=now.getMinutes();
+            var second=now.getSeconds();
+            var temp = (hour>12 ? hour-12 : hour);
+            if(hour===0){
+                temp='12';
+            };
+            temp = temp + (minute<10 ? ':0' : ':')+minute;
+            temp = temp + (second<10 ? ':0' : ':')+second;
+            temp = temp + (hour>12 ? ' .P.M' : ' .A.M');
+            return temp;
+        };
+        var nowNum = nowNumTime();
+        console.log(nowNum);
+
+
+        //字符串和数值相互转换
+        var str='323.423';
+        //转换整型三个方法
+        console.log(parseInt(str));
+        console.log(parseFloat(str));
+        console.log(Number(str));
+        console.log(isNaN(Number(str)));//False,判断是否是NaN
+        //强制类型转换
+        var num=123.456
+        console.log(num.toString());
+        console.log(String(num));
+
+        //隐形转换
+        console.log(''+num)
+        console.log(''.concat(num))
+        console.log(num.toFixed(1))//保留几位小数，得到的是字符串
+        console.log(Number(num.toFixed(2)))
+
+
+        //Globle对象
+        var uri='http://www.baidu.con index.html'
+        console.log(encodeURI(uri))//只能编码空格
+        console.log(encodeURIComponent(uri))//特殊字符和空格都能编码
+
+        console.log(decodeURI(encodeURI(uri)))
+        console.log(decodeURIComponent(encodeURIComponent(uri)))//常用的
+        console.log(decodeURIComponent(encodeURI(uri)))
+    </script>
+</body>
+</html>

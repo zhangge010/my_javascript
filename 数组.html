@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //操作方法 concat(),slice(),splice()
+        //1.concat()数组合并
+        //2.slice切片
+        //3.splice()删除、插入、替换
+        var colors=['red','blue'];
+        var newcloors= colors.concat({name:'zhangsan'});
+        // console.log(newcloors);
+        //3.1删除
+        //     var names=['张三','李四','王五'];
+            // names.splice(0,2);
+            // console.log(names)
+        //3.2插入
+        //     names.splice(2,0,'赵六');
+            // console.log(names);
+        //3.3替换
+        //     names.splice(1,1,'chenqi');
+        //     console.log(names)
+
+
+        //位置方法 indexOf()从前往后查找 lastIndexOf()
+        // var names=['张三','李四','王五'];
+        // alert(names.indexOf('张三1'));//查不到结果就返回-1
+
+
+        //5.迭代方法
+        //5.1 filter()将数组元素进行过滤
+        /*
+        var numbers=[12,3,4,6,10,45,67];
+        var filterResult=numbers.filter(function (item,index,arry) {
+            return item>10;
+        });
+        console.log(filterResult);
+
+        //5.2 map()方法
+        var mapResult=numbers.map(function (item,index,arry) {
+            return item*2;
+        });
+        console.log(mapResult);
+
+        for(var i=0;i<mapResult.length;i++){
+            console.log(mapResult[i])
+        };
+        //5.3 forEach()
+        mapResult.forEach(function (item,index) {
+            console.log(item)
+        })*/
+        people=[
+            {
+                name:'张三',
+                age: 23,
+            },
+            {
+                name:'李四',
+                age: 2,
+            },
+            {
+                name:'王五',
+                age: 99,
+            },
+        ]
+        myname=people.map(function (item,index) {
+            return item.name
+        });
+        myage=people.map(function (item,index) {
+            return item.age
+        });
+        console.log(myname,myage)
+
+
+    </script>
+
+</body>
+</html>

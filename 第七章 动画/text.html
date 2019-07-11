@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 100px;
+				background-color: #0000FF;
+				border: 2px solid #DA70D6;
+				padding: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script type="text/javascript">
+			var div=document.getElementsByTagName('div')[0];
+			console.log(getStyle(div,'width'))
+			console.log(getStyle(div,'height'))
+			console.log(getStyle(div,'padding'))
+			console.log(getStyle(div,'border'))
+			console.log(getStyle(div,'border').length)
+			console.log(typeof(getStyle(div,'border')))
+			function getStyle(obj,attr){
+				if(obj.currentStyle){
+					//支持ie
+					return obj.currentStyle[attr];
+				}else{
+					// console.log(getComputedStyle(obj,null)[attr])
+					return getComputedStyle(obj,null)[attr]
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //bind es5新增的方法，主要作用：将函数绑定到某个对象上，并且有返回值（一个函数）
+    //常见的函数式编程技术-函数柯里化
+    function getConfig(colors,size,otherOptions) {
+        console.log(colors,size,otherOptions)
+    };
+    var defaultConfig=getConfig.bind(null,'blue','1024*768');
+    defaultConfig('123')
+    defaultConfig('456')
+    defaultConfig('789s')
+    console.log(typeof defaultConfig)
+    console.log(defaultConfig)
+
+
+</script>
+
+
+</body>
+</html>

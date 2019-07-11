@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">隐藏</button>
+    <br>
+    <img src="./images/image04.jpg" id="new">
+    <script type="text/javascript">
+        var obtn=document.getElementById('btn');
+        var newImg=document.getElementById('new');
+        // var isShow=true;
+        obtn.onclick=function () {
+            if (obtn.innerHTML==='隐藏'){
+               newImg.style.display = 'none';
+               obtn.innerHTML='显示';
+               // isShow=false;
+            }else {
+                newImg.style.display = 'block';
+                obtn.childNodes[0].textContent='隐藏';
+                // isShow=true;
+            }
+        }
+        console.log(newImg.attributes[1].nodeName)
+        console.log(newImg.attributes[1].value)
+    </script>
+</body>
+</html>

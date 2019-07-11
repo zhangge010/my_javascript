@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: #808080;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" id="btn">hello world</button>
+		<!-- <button type="button" id="btn1">hello world001</button> -->
+		<script type="text/javascript">
+			var btn=document.getElementById('btn');
+			// var btn1=document.getElementById('btn1')
+			
+			var aa=function(){
+				console.log(this.innerHTML);
+				console.log(this)
+			}
+			addEvent(btn,'click',aa)
+			function addEvent(target,eventType,handler){
+				//兼容chrome,ff,safari,ie11,ie10,ie9
+				if(target.addEventListener){
+					target.addEventListener(eventType,handler,false)
+				}else{
+					//兼容ie10、9、8、7
+					target.attachEvent('on'+eventType,function(){
+						handler.call(target);//将this指向target
+					})
+				}
+			}
+			
+		</script>
+	</body>
+</html>

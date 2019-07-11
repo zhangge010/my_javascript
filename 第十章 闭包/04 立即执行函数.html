@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //自执行函数
+    // (function() {
+    //     console.log('hello')
+    // })();
+    // (function() {
+    //     console.log('hello')
+    // }());
+    //立即执行函数也叫闭包，可以封装私有属性，同时可以减少对全局变量的污染
+     var add=(function () {
+        var count=0
+        return function () {
+            return ++count;
+        }
+    })();
+     // console.log(count)
+     // console.log(aaaa)
+     console.log(add)
+     console.log(add());
+     console.log(add());
+     console.log(add());
+     console.log(add());
+
+    var add2=(function () {
+        var count=10
+        return function () {
+            return ++count;
+        }
+    })();
+    console.log(add2())
+    console.log(add2())
+    console.log(add2())
+    console.log(add2())
+    add2=null;
+    // console.log(add2())
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <button id="start">开始</button>
+    <button id="stop">停止</button>
+    <script type="text/javascript">
+        var start=document.getElementById('start');
+        var stop=document.getElementById('stop');
+        var num =0,timer=null;
+        start.onclick=function () {
+            clearInterval(timer);
+            timer=setInterval(function () {
+                num++;
+                console.log(num)
+            },1000)
+        };
+        stop.onclick=function () {
+            clearInterval(timer)//清除定时器
+        }
+    </script>
+</body>
+</html>

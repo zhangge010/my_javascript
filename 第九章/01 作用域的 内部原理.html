@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //编译阶段 边解释边执行
+    // 内部原理成分: 编译，执行，查询，嵌套，异常
+    // var b=1
+    // function f() {
+    //     'use strict';
+    //     // console.log(a)
+    //     var a=123;
+    //     b=a;
+    //     return b
+    // }
+    // console.log(f())
+    // console.log(a);
+    // var a=document.createElement('div');
+    // a.setAttribute('id','aaaa')
+    // a.innerHTML='aaaaaaaaaaaa'
+    // console.log(a)
+    var a=1;
+    var b=2;
+    function fn(x) {
+        // var a=10;
+        console.log(a)
+        function bar(x) {
+            a=100;
+            b=x+a;
+            console.log(a)
+            return b;
+        }
+        bar(20);
+        bar(200);
+        console.log(a)
+        return a
+    }
+    fn(1)
+    console.log(a)
+    console.log(b)
+</script>
+</body>
+</html>

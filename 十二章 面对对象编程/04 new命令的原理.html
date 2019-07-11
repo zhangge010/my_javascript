@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //new命令的原理
+    //1.创建一个空对象，作为将要返回的对象实例
+    //2.将这个空对象的原型对象，指向了构造函数的prototype属性对象
+    //3.蒋政实例对象的值赋值给函数内部的this关键字
+    //4.执行构造函数体内的代码
+    function Person(name) {
+        this.name = name;
+    }
+    var p1 = new Person('mjj');
+    console.log(p1.__proto__ === Person.prototype);
+    console.log(p1.__proto__)
+    console.log(Person.prototype)
+    //每个对象在创建的时候都会自动拥有一个构造函数属性constructor
+    //constructor继承来原型对象，指向了构造函数的引用
+    console.log(p1.constructor)
+    console.log(p1.constructor === Person)
+    /*var a=[4,5,6,7]
+    a.forEach(function (value,index) {
+        console.log(index+':'+value)
+    })
+    for (var i=0;i<a.length;i++){
+        console.log(a.indexOf(a[i])+':'+a[i])
+    }*/
+</script>
+
+</body>
+</html>

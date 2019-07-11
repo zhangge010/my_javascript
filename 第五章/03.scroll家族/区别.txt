@@ -1,0 +1,3 @@
+offset：包涵自己大小，padding，border
+client：包涵自己大小，padding
+scroll：没有滚动就跟client一样；有滚动就是整个自己的大小

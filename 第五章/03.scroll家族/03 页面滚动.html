@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.btn{
+				position: fixed;
+				top: 400px;
+				left: 200px;
+				cursor: pointer;
+			}
+			body{
+				height: 2000px;
+			}
+			.box{
+				width: 120px;
+				height: 500px;
+				overflow: scroll;
+				border: #000000 solid 1px;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="btn" type="submit">回到顶部</button>
+		<button id="btn" type="submit">box</button>
+		<div class="box">
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+			<p>hello</p>
+		</div>
+		<script type="text/javascript">
+			var btn=document.getElementsByClassName('btn')[0];
+			var a=document.getElementsByTagName('body')[0];
+			//兼容多款浏览器
+			var docScrollTop=document.documentElement.scrollTop ||document.body.scrollTop
+			// document.documentElement.scrollTop=500;
+			btn.onclick=b
+			function b() {
+				if(docScrollTop){
+					document.documentElement.scrollTop=0;
+					document.body.scrollTo=0;
+				}
+			}
+			var box=document.getElementsByClassName('box')[0];
+			var btn1=document.getElementById('btn');
+			btn1.onclick=function(){
+				box.scrollTop=100;
+			}
+			
+			a.onscroll=function(){
+				console.log(document.documentElement.scrollTop)
+			}
+		</script>
+	</body>
+</html>

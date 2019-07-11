@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class list</title>
+    <style type="text/css">
+        #box {
+            color: red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2>你要买什么课程？</h2>
+    <p title="请选择购买的课程" class="web">
+        本课程是web全栈课程，期待你的购买！
+    </p>
+    <ul id="list">
+        <li class="item">JavaScript</li>
+        <li class="item">CSS</li>
+        <li>DOM</li>
+
+    </ul>
+    <div id="classlist">hello world <!--我是注释--></div>
+
+
+    <div>我是上一个兄弟</div>
+    <div class="father" id="aaa">
+        <p>zhangsan</p>
+        <p>lisi</p>
+    </div>
+
+
+    <div>我是下一个兄弟</div>
+    <script type="text/javascript">
+        var oNode = document.getElementById('classlist');
+        console.log(oNode.nodeName, oNode.nodeValue, oNode.nodeType)//DIV null 1
+
+        var attrNode = oNode.attributes[0];
+        console.log(attrNode.nodeName, attrNode.nodeValue, attrNode.nodeType);//id classlist 2
+
+        var textNode = oNode.childNodes[0];
+        console.log(textNode.nodeName, textNode.nodeValue, textNode.nodeType);//#text hello world  3
+
+        var commentNode = oNode.childNodes[1];
+        console.log(commentNode.nodeName, commentNode.nodeValue, commentNode.nodeType);//#comment 我是注释 8
+
+        //获取属性值getAttribute
+        //设置属性值setAttribute
+        var oP = document.getElementsByTagName('p')[0];
+        var title = oP.getAttribute('title');
+        var className = oP.getAttribute('class');
+        console.log(title);
+        console.log(className);
+        oP.setAttribute('id', 'box');
+
+
+        var oFather = document.getElementsByClassName('father')[0];
+        // console.log(oFather.childNodes)
+        // console.log(oFather.nextSibling);
+        // console.log(oFather.firstChild);
+        // console.log(oFather.previousSibling);
+
+//根据nodeType去选择
+        function get_childNodes(fatherNode) {
+            var nodes = fatherNode.childNodes;
+            var arr=[];
+            for (var i=0;i<nodes.length;i++){
+                if (nodes[i].nodeType===1){
+                    arr.push(nodes[i])
+                }
+            }
+            return arr;
+        }
+        var childNodes=get_childNodes(oFather);
+        console.log(childNodes);
+
+        function get_nextSibling(n) {
+            var x=n.nextSibling;
+            while (x&&x.nodeType!=1){
+                x=x.nextSibling;
+            }
+            return x;
+        }
+        console.log(get_nextSibling(oFather))
+
+
+    </script>
+</body>
+</html>

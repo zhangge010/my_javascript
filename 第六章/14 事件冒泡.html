@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" id="btn">按钮</button>
+		<script type="text/javascript">
+			window.onload=function(){
+				// Bubble,cancelBubble,stopPropagation(),stopImmediatePropagation()
+				var btn=document.getElementById('btn');
+				/*btn.onclick=function(e){
+					e=e||window.event
+					if(e.stopPropagation){
+						e.stopPropagation();
+					}else{
+						e.cancelBubble = true
+					}
+					this.innerHTML='hello'
+				}
+				document.body.onclick=function(){
+					console.log('修改了')
+				}*/
+				
+			// 	btn.addEventListener('click',function(e){
+			// 			// e.stopImmediatePropagation();		
+			// 			this.innerHTML='world';
+			// 		},false)
+			// 	
+			// 	btn.addEventListener('click',function(){
+			// 		this.style.backgroundColor='blue'
+			// 	},false)
+			// }
+			
+				addEvent(btn,'click',aaa)
+				addEvent(btn,'click',bbb)
+				
+				function aaa(){
+					this.innerHTML='world'
+				}
+				function bbb(){
+					this.style.backgroundColor='blue';
+				}
+				
+				function addEvent(target,eventType,handler){
+					//兼容chrome,ff,safari,ie11,ie10,ie9
+					if(target.addEventListener){
+						target.addEventListener(eventType,handler,false)
+					}else{
+						//兼容ie10、9、8、7
+						target.attachEvent('on'+eventType,function(){
+							handler.call(target);//将this指向target
+						})
+					}
+				}
+			
+			
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>call和apply方法的应用</title>
+</head>
+<body>
+<script type="text/javascript">
+    //1.找出数组的最大元素Math.max() apply(null,)
+    // var max=Math.max(1,2,3,4,5,6);
+    // var arr=[2,4,6,9,1];
+    // var arrMax = Math.max.apply(null,arr);
+
+    //2.将类数组转换成真正的数组
+    // function add() {
+    //     console.log(arguments)
+    //     var arr=Array.prototype.slice.apply(arguments);
+    //     console.log(arr);
+    // };
+    // add(1,2,3,4)
+    //3.数组追加
+    // var arr=[];
+    // var li=[1,2,3];
+    // Array.prototype.push.apply(arr,li);
+    // console.log(arr);
+    // Array.prototype.push.apply(arr,[5,8,0]);
+    // console.log(arr);
+    //4.利用call和apply做继承
+    function Animal(name, age) {
+        this.age = age;
+        this.name = name;
+        this.sayAge = function () {
+            console.log(this.age);
+        }
+    }
+
+    //cat
+    function Cat(name, age) {
+        //继承Animal
+        Animal.call(this, name, age)
+    }
+
+    var c = new Cat('小花', 30)
+    c.sayAge();
+    console.log(c.name)
+
+    function Dog() {
+        Animal.apply(this, arguments)
+    };
+    var d = new Dog('小白', 20)
+    console.log(d.name)
+    console.log(d.age)
+    //5.使用log代理console.log()
+    function log() {
+        console.log.apply(console,arguments)
+    };
+    log(d.name)
+</script>
+
+</body>
+</html>

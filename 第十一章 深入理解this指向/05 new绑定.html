@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function fn() {
+        var a=1
+        //1.如果是new关键字执行函数 相当于构造函数来实例化对象，那么内部的this指向了当前的实例化对象
+        console.log(this);
+    }
+    var f = new fn();
+    console.log(f)
+
+    function fn2() {
+        //this还是指向了当前的对象
+        console.log(this)
+        //使用return关键来返回对象的时候，实例化出来的对象是当前的返回对象
+        return{
+            name:'mjj',
+            age: 30
+        }
+    }
+    var fn2 = new fn2();
+    console.log(fn2)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.item{
+				width: 100px;
+				height: 100px;
+				background-color: #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id='box'>
+			<li class="item">1</li>
+			<li class="item">2</li>
+		</ul>
+		<script type="text/javascript">
+			//currentTarget target和srcElement
+			var box=document.getElementById('box');s
+			//1.currectTarget属性返回事件当前所在的节点,正在执行的监听函数所绑定的节点
+			/*box.onclick=function(e){
+				e=e||window.event;
+				console.log(e.currentTarget);
+				console.log(e.target)
+			}*/
+			//2.target属性返回的是事件的实际目标对象
+			//target属性ie8不支持
+			/*
+			box.onclick=function(e){
+				e=e||window.event;
+				console.log(e.srcElement);
+				console.log(e.target)
+				//srcElement跟target功能一样的,只是ff低版本不支持
+				var target=e.target||e.srcElement;
+				console.log(target)
+				e.currentTarget跟this属性一样
+				console.log(e.currentTarget===this);
+				console.log(e.target===this);
+			}*/
+			box.onmouseover = function(e){
+				e = e || window.event;
+				var target=e.target||e.srcElement;
+				if(target!=this){
+					target.style.backgroundColor = 'red';
+					console.log(e.target);
+					console.log(e.currentTarget);
+					console.log(this)
+
+				}
+
+			};
+			box.onmouseout = function(e){
+				e = e || window.event;
+				var target=e.target||e.srcElement;
+				target.style.backgroundColor = 'pink';
+			}
+		</script>
+	</body>
+</html>

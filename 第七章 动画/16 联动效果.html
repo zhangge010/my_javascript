@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#ad{
+				position: fixed;
+				bottom: 0;
+				right: 0;
+			}
+			#close{
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 25px;
+				height: 25px;
+				z-index: 5;
+				/* background-color: #0000FF; */
+			}
+		</style>
+	</head>
+	<body>
+		<div id="ad">
+			<img src="../images/liandong.png" style="width: 300px;" >
+			<span id="close">
+				
+			</span>
+		</div>
+		<script src="js/myAnimation.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var ad=document.getElementById("ad")
+			var close=document.getElementById('close');
+			close.onclick=function(){
+				startAnimation(ad,{"height":260},function(){
+					startAnimation(ad,{"right":-300},function(){
+						ad.style.display='none'
+					})
+				})
+			}
+		</script>
+	</body>
+</html>

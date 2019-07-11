@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            border: 1px solid #ccc;
+            width: 430px;
+            height: 70px;
+            padding-top: 440px;
+            background: url("./images/background01.jpg") no-repeat;
+        }
+        #box ul li{
+            list-style: none;
+            float: left;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li class="item">
+                <img src="./images/xiezi01.jpg" >
+            </li>
+            <li class="item">
+                <img src="./images/xiezi02.jpg" >
+            </li>
+            <li class="item">
+                <img src="./images/xiezi03.jpg" >
+            </li>
+            <li class="item">
+                <img src="./images/xiezi03.jpg" >
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        //1.获取事件源
+        function getIdDom(id) {
+            return typeof id==='string' ? document.getElementById(id) : null;
+        }
+        var items=document.getElementsByClassName('item');
+        for (var i=0;i<items.length;i++){
+            var item=items[i];
+            item.index=i+1,
+            // console.log(item)
+            // console.log(item.index)
+            items[i].onmouseover=function(){
+                getIdDom('box').style.background=`url("./images/background0${this.index}.jpg") no-repeat`;
+                // console.dir(this)
+            };
+        }
+    </script>
+
+
+
+</body>
+</html>

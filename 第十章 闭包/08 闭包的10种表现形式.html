@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    // 1.返回值 最常见的一种形式
+    /*var fn=function () {
+        var name='mjj';
+        return function () {
+            return name
+        }
+    }
+    var f=fn();
+    console.log(f());*/
+    // 2.函数赋值 一种变形的形式，是将内部的函数赋值给一个外部的变量
+    /* var fn2;
+     var fn=function () {
+         var age =20;
+         var a=function () {
+             return age;
+         }
+         fn2=a;
+     }
+     fn();
+     console.log(fn2())
+     // 3.函数参数
+     /*function fn2(f) {
+         console.log(f())
+     }
+     function fn() {
+         var name='mjj';
+         var a=function () {
+             return name
+         }
+         fn2(a);
+     }
+     fn();*/
+    // 4.IIFE
+    // function fn2(f) {
+    //     console.log(f())
+    // }
+    //
+    // (function fn() {
+    //     var name = 'mjj';
+    //     var a = function () {
+    //         return name
+    //     }
+    //     fn2(a);
+    // })();
+
+    // 5.循环赋值
+    /*function foo() {
+        var arr = [];
+        for (var i = 0; i < 10; i++) {
+            arr[i] = (function (n) {
+                 return function () {
+                     return n;
+                 }
+             })(i);
+            // (function (m) {
+            //     arr[m] = function () {
+            //         return m
+            //     }
+            // })(i);
+        }
+        return arr;
+    };
+    var bar = foo();
+    console.log(bar)
+    console.log(bar[0]())*/
+    // 6.getter和setter 函数来将要操作的变量保存在函数内部，防止暴露在外部
+    /*var getValue;
+    var setValue;
+    (function () {
+        var num=0;
+        getValue=function () {
+            return num
+        };
+        setValue=function (v) {
+            if(typeof v==='number'){
+                num = v;
+            }
+        }
+    })();
+    console.log(getValue());
+    setValue(100)
+    console.log(getValue());*/
+    // 7.迭代器
+    // 8.区分首次
+    // a=[1,2,3,4]
+    // console.log(a.indexOf(3))返回数组中的元素的索引
+    var firstLoad=(function () {
+        var list=[];
+        return function (id) {
+            if (list.indexOf(id)>=0){
+                return false
+            }else {
+                list.push(id)
+                return true
+            }
+        }
+    })();
+
+    console.log(firstLoad(10));//true
+    console.log(firstLoad(10));//false
+    // 9.缓存机制
+    //缓存对象
+    var mult =(function () {
+        var cache={};
+        var calculate = function () {
+            var sum = 0;
+            for (var i=0;i<arguments.length;i++){
+                sum=sum+arguments[i];
+            }
+            return sum;
+        }
+        return function () {
+            //对cache对象进行操作
+            //1,2,3,4,5
+            var args=Array.prototype.join.call(arguments,',');
+            // var args=Array.prototype.join.apply(arguments,[',',]);
+            // var l=[];
+            // for (var i=0;i<arguments.length;i++){
+            //     l.push(arguments[i])
+            // }
+            // var args = l.join(',')
+            if (args in cache){
+                return cache[args];
+            }
+            // console.log(cache)
+            return cache[args]=calculate.apply(null,arguments);//第一个参数为null将calculate的作用域变成全局
+        }
+    })();
+    console.log(mult(1,2,3,4,5))
+    // console.log(mult(1,2,3,4,5))
+    // console.log(mult(1,2,3,4,5,6,7))
+    // console.log(mult(1,2,3,4,5,6))
+    // 10.img对图片上报
+
+
+</script>
+
+</body>
+</html>

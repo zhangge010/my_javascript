@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <!--onselect omchange oninput-->
+    <input type="text"  value="输入你的名字">
+    <script type="text/javascript">
+        var iNode=document.getElementsByTagName('input')[0];
+        iNode.onchange=function () {
+            console.log(this.value)
+
+        }
+    </script>
+
+</body>
+</html>

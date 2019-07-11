@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <label for="file">上传图片格式验证</label>
+    <input type="file" id="file" >
+    <script>
+        // var a='aaa/bbb/ccc.txtde';
+        // var array=a.split('.');
+        // var path='.'+array[array.length-1];
+        // console.log(path);
+        // console.log(typeof path );
+        var file=document.getElementById('file');
+        file.onchange=function () {
+            var path=this.value;
+            var arrey=path.split('.');
+            var suffix = '.'+ arrey[arrey.length-1];
+            if (suffix==='.jpg' || suffix ==='.png' || suffix === '.txt'){
+                alert('文件格式正确')
+            } else {
+                alert('文件格式错误')
+            }
+        }
+    </script>
+
+</body>
+</html>

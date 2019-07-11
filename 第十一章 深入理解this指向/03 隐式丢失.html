@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //隐式丢失就是指被隐式绑定的函数丢失了绑定对象 从而默认绑定到windwo
+    //这种情况比较容易出错却又非常常见
+    //1.隐式丢失 函数别名
+    /*var a=0;
+    function foo() {
+        console.log(this.a);
+    }
+    var obj = {
+        a:1,
+        foo:foo,
+    }
+    //把obj.foo()赋值给别名bar，造成隐式丢失的情况，因为只是把obj.foo()赋值给了
+    //bar变量，二bar与obj对象毫无关系
+    obj.foo();
+    var bar=obj.foo;
+    bar();*/
+
+    //2.参数传递
+   /* var a=0;
+    function foo() {
+        console.log(this.a)
+    }
+    function bar(fn) {
+        fn();
+    }
+    var obj = {
+        a:1,
+        foo:foo,
+    }*/
+    //把obj.foo当做参数传递到bar函数中，有隐式函数赋值fn=obj.foo，只是
+    // 把foo函数赋值给了fn，而fn与obj对象毫无关系，所以当前foo内部的this指向了window
+
+    // bar(obj.foo)
+    //3.内置函数setTimeout和setInterval()第一个参数的回调函数的this默认指向了window
+    /*var a=10;
+    function foo() {
+        console.log(this.a)
+    }
+    var obj={
+        a:1,
+        foo:foo,
+    }
+    setTimeout(obj.foo,1000)*/
+    //4.间接调用
+   /* function foo() {
+        console.log(this.a)
+    }
+    var a=2;
+    var obj = {
+        a:3,
+        foo:foo,
+    }
+    var p = {
+        a:4,
+    }
+    //隐式绑定，函数当做对象中的方法来使用，内部的this指向了该对象
+    obj.foo();
+    //将obj.foo函数对象赋值给p.foo函数，然后立即执行。相当于仅仅是foo()函数的立即调用，内部的this默认指向了window
+    (p.foo = obj.foo)();
+    //将obj.foo赋值给p.foo之后再执行p.foo()，其实是属于p对象的方法的调用，this指向了当前的p对象
+    p.foo = obj.foo;
+    p.foo();*/
+
+    //5.其他情况 指向了window的特殊情况
+    var a=0;
+    var obj={
+        a:1,
+        foo:foo,
+    }
+    function foo() {
+        console.log(this.a)
+    }
+    (obj.foo = obj.foo)();//0
+    (false || obj.foo)();//0
+    (1, obj.foo)();//0
+</script>
+
+</body>
+</html>

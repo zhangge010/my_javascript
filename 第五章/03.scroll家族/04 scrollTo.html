@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+		<button type="button" id='btn' style="position: fixed;">回到顶部</button>
+		<script type="text/javascript">
+			window.scrollTo(0,500)
+			var btn=document.getElementById('btn');
+			btn.onclick=function(){
+				window.scrollTo(0,1600);
+			}
+			console.log(screen.availHeight)
+			console.log(screen.availWidth)
+			console.log(screen.height)
+			console.log(screen.width)
+		</script>
+	</body>
+</html>

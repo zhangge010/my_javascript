@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格布局定位实现</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #wrap{
+            border: 1px solid red;
+            position: relative;
+        }
+        #wrap .item{
+            width: 248px;
+            /*height: 300px;*/
+            font-size: 12px;
+        }
+        #wrap .item .title{
+            width: 248px;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            /*text-align: center;*/
+        }
+        .imgContainer{
+            width: 240px;
+            display: table-cell;
+            text-align: center;
+        }
+        .imgContainer img{
+            width: 240px;
+        }
+
+        #wrap .item .price{
+            color:#ff6700;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+         }
+    </style>
+</head>
+<body>
+<div class="cols">
+    <button>3列</button>
+    <button>4列</button>
+    <button>5列</button>
+    <button>6列</button>
+</div>
+<div id="wrap">
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background01.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background02.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background03.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background04.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background01.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background02.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background03.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background04.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background01.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background02.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="./images/background03.jpg" alt="">
+        </div>
+        <p class="title">最新款adidas热卖</p>
+        <p class="price">￥99</p>
+    </div>
+
+</div>
+    <script type="text/javascript">
+        var buttons=document.getElementsByTagName('button');
+        var items=document.getElementsByClassName('item');
+        // console.log(items[0].offsetHeight,items[0].offsetWidth)
+        buttons[0].onclick=function () {
+            flex(3)
+        };
+        buttons[1].onclick=function () {
+            flex(4)
+        };
+        buttons[2].onclick=function () {
+            flex(5)
+        };
+        buttons[3].onclick=function () {
+            flex(6)
+        };
+        function flex(colsNum) {
+            //第0行第0列  top：0*h left：0*w
+            //第0行第1列  top：0*h left：1*w
+            //第0行第2列  top：0*h left：2*w
+            //第1行第0列  top：1*h left：0*w
+            //第1行第1列  top：1*h left：1*w
+            //第1行第2列  top：1*h left：2*w
+            //第2行第0列  top：2*h left：0*w
+            //第2行第1列  top：2*h left：1*w
+                // 10号  分3列  -->第3行，第1列
+                // 11号  分3列  -->第3行，第2列
+                // 10号  分4列  -->第2行，第2列
+                // 11号  分4列  -->第3行，第2列
+            for (var i=0;i<items.length;i++){
+                var row = parseInt(i/colsNum);
+                var col = parseInt(i%colsNum);
+                items[i].style.position = 'absolute';
+                items[i].style.top = (row*items[i].offsetHeight)+'px';
+                items[i].style.left = (col*items[i].offsetWidth)+'px'
+            }
+        }
+    </script>
+
+</body>
+</html>

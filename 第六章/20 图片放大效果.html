@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			#box {
+				width: 323px;
+				height: 430px;
+				border: 1px solid #DDDDDD;
+				position: relative;
+				margin: 50px;
+			}
+
+			#small_box {
+				width: 323px;
+				height: 430px;
+				position: relative;
+				/* border: 10px solid red; */
+			}
+
+			#small_box #mask {
+				position: absolute;
+				width: 160px;
+				height: 160px;
+				background: url(../images/coin.png) repeat;
+				top: 0;
+				left: 0;
+				display: none;
+
+			}
+
+			#big_box {
+				position: absolute;
+				left: 340px;
+				top: 0;
+				width: 323px;
+				height: 430px;
+				border: 1px solid #DDDDDD;
+				overflow: hidden;
+				display: none;
+			}
+
+			#big_box img {
+				position: absolute;
+				z-index: 5;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id='small_box'>
+				<img src="../images/small.jpg">
+				<span id="mask"></span>
+			</div>
+			<div id="big_box">
+				<img src="../images/big.jpg">
+
+			</div>
+		</div>
+		<script type="text/javascript">
+			window.onload = function() {
+				//1.获取所需要的标签
+				var box = document.getElementById('box');
+				var small_box = document.getElementById('small_box');
+				var big_box = document.getElementById('big_box');
+				var small_img = small_box.children[0];
+				var mask = small_box.children[1];
+				var big_img = big_box.children[0];
+				//2.监听鼠标移动
+				small_box.onmouseover = function() {
+					//2.1让遮罩层和大盒子显示出来
+					mask.style.display = 'block';
+					big_box.style.display = 'block';
+					//2.2监听鼠标移动
+					small_box.onmousemove = function(e) {
+						e = e || window.event;
+						//2.3求出小盒子移动的水平和垂直距离
+						var moveX = e.clientX - small_box.offsetLeft - small_box.clientLeft - box.offsetLeft - box.clientLeft - mask.offsetWidth * 0.5;
+						var moveY = e.clientY - small_box.offsetTop -small_box.clientLeft- box.offsetTop-box.clientLeft - mask.offsetHeight * 0.5;			
+						// console.log(small_box.clientLeft)
+						// console.log(box.clientLeft)
+						//2.4边界处理
+						if (moveX < 0) {
+							moveX = 0;
+						} else if (moveX >= small_box.clientWidth - mask.offsetWidth) {
+							moveX = small_box.clientWidth - mask.offsetWidth;
+						}
+						if (moveY < 0) {
+							moveY = 0;
+						} else if (moveY >= small_box.clientHeight - mask.offsetHeight) {
+							moveY = small_box.clientHeight - mask.offsetHeight;
+						}
+						//2.5 让小盒子移动起来
+						mask.style.left = moveX + 'px';
+						mask.style.top = moveY + 'px';
+
+						//2.6 让大图片移动起来
+						// moveX / (small_box.offsetWidth-mask.offsetWidth) = bigX / (big_img.offsetWidth-big_box.offsetWidth)
+						var x = moveX / (small_box.offsetWidth - mask.offsetWidth);
+						var y = moveY / (small_box.offsetHeight - mask.offsetHeight);
+						big_img.style.left = -x * (big_img.offsetWidth - big_box.offsetWidth) + 'px';
+						big_img.style.top = -y * (big_img.offsetHeight - big_box.offsetHeight) + 'px';
+					}
+				}
+				small_box.onmouseout = function() {
+					mask.style.display = 'none';
+					big_box.style.display = 'none';
+				}
+
+			}
+		</script>
+	</body>
+</html>

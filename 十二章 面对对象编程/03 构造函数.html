@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03.构造函数</title>
+</head>
+<body>
+<script type="text/javascript">
+    //需要一个模板(表示一类实物的共同特征)，让对象生成
+    //类（class）就是对象的模板
+    //js不是基于类的，而是基于构造函数（constructor）和原型链（prototype）
+    //Dog是构造函数，为了与普通函数区别，构造函数的名字的第一个字母通常大写
+    //特点
+    //1.函数体内使用this关键字，代表了所有生产的对象实例
+    //2.生成对象，必须使用new关键字实例化
+   /* function Dog(name,age) {
+        //name和age就是当前实例化对象的属性
+        this.name = name;
+        this.age = age;
+    }
+    var dog1 = new Dog('jack',19);
+    var dog2 = new Dog('mike',5);*/
+   //instanceof
+    function Dog(name) {
+        if (this instanceof Dog){
+            //this指向了当前的实例
+            this.name = name;
+        }else {
+            //this指向了window，外部没有使用new关键字
+            return new Dog(name);
+        }
+
+    }
+    var d1 = Dog('阿黄')
+    var d2 = new Dog('小红');
+    console.log(d1);
+    console.log(d2);
+    console.log(d2 instanceof Dog)
+</script>
+
+</body>
+</html>

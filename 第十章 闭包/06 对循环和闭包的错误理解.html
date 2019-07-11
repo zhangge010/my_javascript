@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    /*function foo() {
+        var arr = [];
+        for (var i = 0; i < 10; i++) {
+            arr[i] = function () {
+                return i;
+            }
+        }
+        return arr;
+    };
+    var bar=foo();
+    console.log(bar)
+    console.log(bar[0]())*/
+
+    //1.解决方案,使用闭包解决循环中变量的问题，相当于把这个变量保存在内存中，
+    //每次执行的时候从内存中获取
+    function foo() {
+        var arr = [];
+        for (var i = 0; i < 10; i++) {
+           // arr[i] = (function (n) {
+           //      return function () {
+           //          return n;
+           //      }
+           //  })(i);
+            (function (m) {
+                arr[m] = function () {
+                    return m
+                }
+            })(i);
+        }
+        return arr;
+    }
+    var bar = foo();
+    console.log(bar)
+    console.log(bar[0]())
+    console.log(bar[1]())
+    console.log(bar[2]())
+    console.log(bar[3]())
+    //2.解决方法，let块级作用域
+  /*  function foo() {
+        var arr = [];
+        for (let i = 0; i < 10; i++) {
+            arr[i] = function () {
+                return i;
+            }
+        }
+        return arr;
+    };
+    var bar=foo();
+    console.log(bar)
+    console.log(bar[0]())
+    console.log(bar[1]())
+    console.log(bar[2]())*/
+</script>
+
+</body>
+</html>

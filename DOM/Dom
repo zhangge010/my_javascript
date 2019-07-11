@@ -1,0 +1,25 @@
+DOM
+Document Object Model 文档对象模型
+var person={
+    name:'abc',
+    fav:function(){
+
+    };
+}
+js中对象分三类：
+1.用户定义对象
+2.内建对象Arry Date Math
+3.宿主对象
+
+
+DOM看作一棵"树"
+
+parent child sibling
+
+
+
+在文档对象（DOM）模型中，每一个节点都是一个对象。DOM节点有三个重要的属性：
+1.nodeName:节点的名称
+2.nodeValue：节点的值
+3.nodeType：节点的类型
+

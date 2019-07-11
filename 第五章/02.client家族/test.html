@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.inner{
+				width: 400px;
+				height: 400px;
+				border: 1px solid red; 
+				position: relative;
+			}
+			.outer{
+				width: 200px;
+				height: 200px;
+				background-color: #666666;
+				position: absolute;
+				top: 50px;
+				left: 100px;
+				/* margin-left: 20px; */
+				border: #000000 solid 2px;
+
+			}
+			.box{
+				width: 50px;
+				height: 50px;
+				background-color: #0000FF;
+				position: absolute;
+				/* padding-left: 20px; */
+				top: 50px;
+				left: 50px;
+				border: #000000 solid 5px;
+				padding: 20px;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="inner">
+			<div class="outer">
+				<div class="box">hello</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var son =document.getElementsByClassName('box')[0];
+			console.log(getElementLeft(son));
+			function getElementLeft(obj){
+				var actualLeft = obj.offsetLeft;
+				var parent = obj.offsetParent;
+				// body的offsetParent
+				while (parent !=null){
+					actualLeft = actualLeft + parent.clientLeft+parent.offsetLeft
+					console.log(parent)
+					parent = parent.offsetParent
+				}
+				return actualLeft;
+				}
+			console.log(son.parentElement.clientLeft)
+			console.log(son.offsetHeight)
+			console.log(son.offsetWidth)
+			//offsetWidth比clientWidth多一个border
+			console.log(son.clientHeight)
+			console.log(son.clientWidth)
+			//获取页面/客户端的大小
+			console.log(document.documentElement.clientWidth)
+			console.log(document.documentElement.clientHeight)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #ppp{
+            color: red;
+            background: pink;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<p>hello world</p>
+<!--<p id="ppp">hello world</p>-->
+<script type="text/javascript">
+   //1.通过调用style
+   //  var oP=document.getElementById('ppp');
+    // console.log(oP.style);//css方式都在里面
+    // oP.style.color='red';
+    // oP.style.backgroundColor='pink';
+    // oP.style.width='200px';
+    // oP.style.height='200px';
+    // oP.style.textAlign='center';
+    // oP.style.lineHeight='200px';
+    // oP.style.fontSize='30px';
+    //2.通过添加属性
+   var oP=document.getElementsByTagName('p')[0];
+   oP.setAttribute('id', 'ppp');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #newSpan{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--获得 onfocus 离开焦点onblur-->
+<form action="#">
+    <p>
+        <label>用户名 ：</label>
+        <input type="text" name='username' value="" id="username" placeholder="请输入用户名">
+    </p>
+    <p>
+        <label for="pwd">密码 ：</label>
+        <input type="password" name='pwd' value="" id="pwd" placeholder="请输入密码">
+    </p>
+    <p>
+        <input type="submit">
+    </p>
+</form>
+<script>
+    var userName=document.getElementById('username');
+    var newNode=document.createElement('span')
+    username.onfocus=function () {
+        newNode.setAttribute('id','')
+        newNode.innerHTML='请输入用户名'
+        userName.parentNode.appendChild(newNode)
+    };
+    userName.onblur=function () {
+        if (this.value&&this.value!='zhangge'){
+            newNode.setAttribute('id','newSpan')
+            newNode.innerHTML='用户名错误'
+            userName.parentNode.appendChild(newNode)
+        }else if (!this.value) {
+            newNode.setAttribute('id','')
+            newNode.innerHTML='请输入用户名'
+            userName.parentNode.appendChild(newNode)
+        }else {
+            newNode.innerHTML=''
+        }
+    }
+
+</script>
+
+</body>
+</html>

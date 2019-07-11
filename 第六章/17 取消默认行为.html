@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- <a href="javascript:void(0);">alex</a> -->
+		<a href="" id="aaa">mjj</a>
+		<script type="text/javascript">
+			var a=document.getElementById('aaa');
+			a.onclick=function(e){
+				e = e||window.event;
+				// e.stopPropagation();
+				// e.preventDefault();//阻止默认事件
+				// e.returnValue = false;
+				// 兼容性写法,preventDefault()不支持ie8,
+				if(e.preventDefault){
+					e.preventDefault();
+				}else{
+					e.returnValue = false;//支持ie8.ie7等
+				}
+				// return false
+				
+			}
+		</script>
+	</body>
+</html>

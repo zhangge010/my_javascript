@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #qe_code{
+            width: 180px;
+            height: 160px;
+            margin: 100px auto;
+            position: relative;
+        }
+        #qe_code img{
+            position: absolute;
+            right: 0;
+        }
+        #qe_code #close{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            text-align: center;
+            line-height: 20px;
+            background-color: gray;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="qe_code">
+        <img src="./images/taobao.png" id="code">
+        <span id="close">X</span>
+    </div>
+    <script type="text/javascript">
+        var closeSpan=document.getElementById('close');
+        var qe_code=document.getElementById('qe_code');
+        closeSpan.onclick=function () {
+            qe_code.style.display='none'
+        }
+    </script>
+
+</body>
+</html>
