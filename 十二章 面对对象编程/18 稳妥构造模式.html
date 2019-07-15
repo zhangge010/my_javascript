@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //稳妥模式：没有公共属性，并且它的方法也不引用this对象
+    function Person(name) {
+        var a=10;
+        var o=new Object();
+        //name就是属于私有属性 结合闭包
+        o.sayName = function () {
+            console.log(a);
+            console.log(name);
+        }
+        return o;
+    }
+    //p1对象叫稳妥对象
+    var p1 = Person('mjj')
+    var man = new Person('mjj',18)
+    var woman = new Person('alex',30)
+    console.log(man.sayName === woman.sayName);
+    console.log(man.__proto__===Person.prototype)
+    console.log(man instanceof Person)
+</script>
+
+</body>
+</html>
