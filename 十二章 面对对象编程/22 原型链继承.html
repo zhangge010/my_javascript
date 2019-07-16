@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Animal() {
+        this.age = 28;
+    }
+    Animal.prototype.name = 'mjj';
+    Animal.prototype.sayName = function () {
+        return this.name;
+    };
+    function Dog() {};
+    //Dog继承了Animal
+    //本质：重写原型对象，将一个父对象的属性和方法作为一个对象的原型对象的属性和方法。
+    Dog.prototype = new Animal();
+    Dog.prototype.constructor = Dog;
+    var d1 = new Dog();
+    console.log(d1.name);
+    console.log(d1.age);
+    console.log(d1.sayName())
+    //问题1：父类中的实例属性一旦赋值给子类的原型属性，此时这些属性都是属性子类的共享属性
+    //问题2：实例化子类型的时候，不能向父类型的构造函数传参
+</script>
+</body>
+</html>

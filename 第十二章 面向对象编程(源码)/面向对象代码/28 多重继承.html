@@ -23,7 +23,7 @@
 	Parent.prototype.sayAge = function(){
 		console.log(this.age);
 	}
-	
+
 	function Me(){
 		// 继承Person的属性
 		Person.call(this);
@@ -39,7 +39,7 @@
 	// 指定构造函数
 	Me.prototype.constructor = Me;
 	var me = new Me();
-	
+
 	</script>
 </body>
 </html>

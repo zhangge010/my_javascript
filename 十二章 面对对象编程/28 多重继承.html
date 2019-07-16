@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Person() {
+        this.name = 'mjj';
+    };
+    Person.prototype.sayName = function () {
+        console.log(this.name)
+    };
+    function Parent() {
+        this.age = 30;
+    }
+    Parent.prototype.sayAge = function () {
+        console.log(this.age)
+    }
+    function Me() {
+        Person.call(this);
+        Parent.call(this);
+    }
+    //继承Person的方法
+    Me.prototype = Object.create(Person.prototype);
+    Object.assign(Me.prototype,Parent.prototype);
+    // Object.assign(Me.prototype,Person.prototype);
+    Me.prototype.constructor = Me;
+    var me=new Me();
+
+
+</script>
+
+</body>
+</html>

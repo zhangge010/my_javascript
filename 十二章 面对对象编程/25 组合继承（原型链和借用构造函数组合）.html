@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Animal(name) {
+        this.name = name;
+        this.colors = ['red','green']
+    }
+    Animal.prototype.getName = function () {
+        return this.name
+    }
+    function Dog(name) {
+        //继承Animal
+        // Animal.call(this, name);
+        //让父类的实例属性继承下来，实例修改引用类型的值，另外一个实例的引用类型也不会修改
+        Animal.apply(this,[name,])
+    };
+    //重写原型对象：把父类的共享方法继承下来
+    Dog.prototype = new Animal();
+    Dog.prototype.constructor = Dog;
+    var d1 = new Dog('阿黄');
+    var d2 = new Dog('阿红');
+    //问题：无论在上面情况下，我们都会调用父类元素两次
+    //1.一个数初始化子类的原型对象时候
+    //2.在子类构造函数内部调用父类的构造函数
+</script>
+
+</body>
+</html>
