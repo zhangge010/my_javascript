@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    function Person(name,age) {
+        this.name = name;
+        this.age=age;
+        this.friends = ['alex','mjj'];
+        if (typeof this.sayName != 'function'){
+            Person.prototype.sayName =function () {
+                console.log(this.name)
+            }
+        }
+    };
+    // Person.prototype ={
+    //     constructor:Person,
+    //     sayName:function () {
+    //         console.log(this.name);
+    //     }
+    // }
+    var wo = new Person('wo',18);
+    var you = new Person('you',28);
+    console.log(wo);
+    wo.sayName()
+    console.log(you);
+    console.log(wo.friends);
+    console.log(you.friends);
+    wo.friends.push('张三')
+    console.log(wo.friends);
+    console.log(you.friends);
+</script>
+
+</body>
+</html>
