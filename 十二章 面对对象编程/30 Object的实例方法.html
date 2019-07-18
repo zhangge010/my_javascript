@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>30 Object的实例方法</title>
+</head>
+<body>
+<div id="now" style="font-size: 30px;color: #0000FF;"></div>
+<script type="text/javascript">
+    //返回当前对象的值，默认情况返回对象本身
+    // Object.prototype.valueOf()
+    var obj = new  Object();
+    //用自定义的Object.valueOf覆盖Object.prototype.valueOf
+   /* obj.valueOf = function(){
+        return 2
+    }
+    console.log(obj.valueOf()===obj)
+    console.log(1+obj)*/
+    //返回一个对象的字符串形式，默认返回类型字符串
+    // Object.prototype.toString()
+    /*var obj2=123;
+    console.log(typeof(obj2))
+    console.log(obj2.toString())
+    console.log(typeof(obj2.toString()))*/
+    // Object.prototype.toLocaleString()
+    // Object.prototype.isPrototypeOf()
+   /* var o1={};
+    var o2 = Object.create(o1)
+    var o3 = Object.create(o2)
+    console.log(o1.isPrototypeOf(o2))
+    console.log(o1.isPrototypeOf(o3))
+    console.log(o2.isPrototypeOf(o3))
+    console.log(o2.prototype===o1.prototype)
+    console.log(Object.prototype.isPrototypeOf({}))
+    console.log(Object.prototype.isPrototypeOf([]))*/
+    // Object.prototype.hasOwnProperty()
+   /* var obj ={
+        a:1,
+        b:function () {
+
+        }
+    }
+    console.log(obj.hasOwnProperty('a'))
+    console.log(obj.hasOwnProperty('b'))
+    console.log(obj.hasOwnProperty('c'))*/
+    // Object.prototype.propertyIsEnumerable()
+    var arr=[1,3,4,5]
+    console.log(arr.propertyIsEnumerable('1'))
+    for (var key in arr){
+        console.log(key+':'+arr[key])
+    }
+   /* function Time() {
+        var a = new Date();
+        var year=a.getFullYear();
+        var month=parseInt(a.getMonth())+1;
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes();
+        var seconds = a.getSeconds();
+        if (seconds<10){
+            seconds = '0'+ seconds.toString()
+        } else {
+            seconds=seconds;
+        }
+        var today=year+'-'+month+'-'+date+' '+hour+':'+min+':'+seconds
+        var now=document.getElementById('now')
+        now.innerHTML = today
+    }
+    // var timer = setInterval(Time,100);*/
+    /*function outer() {
+        var result = [];
+        for (var i = 0; i<10; i++){
+            result[i] = (function (num) {
+                return function() {
+                    console.log(num);    // 此时访问的num，是上层函数执行环境的num，数组有10个函数对象，每个对象的执行环境下的number都不一样
+                }
+            })(i)
+        }
+        return result
+    }
+    console.log(outer())
+    outer()[6]()*/
+    /*function  factorial(num) {
+        if(num<= 1) {
+            return 1;
+        } else {
+            return num * factorial(num-1)
+        }
+    }
+    console.log(factorial(3))*/
+
+
+</script>
+
+</body>
+</html>

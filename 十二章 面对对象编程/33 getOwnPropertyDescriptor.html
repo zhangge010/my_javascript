@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //getOwnPropertyDescriptor 可以获取属性描述对象，他的第一个参数是目标
+    // 对象，第二个参数是一个字符串（目标对象的属性名）
+    var obj = {
+        a:123,
+    }
+    console.log(Object.getOwnPropertyDescriptor(obj,'a'))
+    console.log(Object.getOwnPropertyDescriptor(obj,'a').writable)
+    console.log(obj)
+</script>
+</body>
+</html>

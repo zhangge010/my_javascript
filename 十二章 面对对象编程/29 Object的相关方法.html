@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var arr = ['a','b','hello']
+    /*console.log(Object.keys(arr))
+    console.log(Object.keys(arr).length)
+    for (var i in arr){
+        console.log(i)
+    }
+    console.log(Object.getOwnPropertyNames(arr))
+    console.log(Object.getOwnPropertyNames(arr).length)*/
+
+    // 参数是该对象，返回该对象的原型,也是获取原型对象的标准方法
+    // Object.getPrototypeOf()
+    console.log(Object.getPrototypeOf(arr)===Array.prototype)
+    console.log(Object.getPrototypeOf(arr))
+    console.log(Object.getPrototypeOf(Object.prototype) === null)
+    console.log(Object.getPrototypeOf({}) === Object.prototype)
+    function Person() {
+
+    }
+    var p=new Person()
+    console.log(Object.getPrototypeOf(p) === Person.prototype)
+    console.log(Object.getPrototypeOf(p) === p.__proto__)
+    function f() {}
+    console.log(Object.getPrototypeOf(f) === Function.prototype)
+
+
+    // 接收两个参数,第一个参数是现有对象,第二个是原型对象
+    // Object.setPrototypeOf()
+
+    var a = {};
+    var b = {x : 1};
+    Object.setPrototypeOf(a,b);
+    console.log(a.x);
+    console.log(Object.getPrototypeOf(a));
+</script>
+</body>
+</html>
