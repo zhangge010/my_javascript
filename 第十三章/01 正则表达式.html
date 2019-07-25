@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--tittle和alt的区别-->
+<img src="../images/small.jpg" alt="加载失败" title="我是tittle" style="width: 100px">
+<script type="text/javascript">
+    //1.字面量
+    //var expression = /pattern/flags
+    // var str = 'asddddfs';
+    // var p=/ddd/g;
+    // console.log(p.test(str))//符合就返回为true
+    // //2.构造函数
+    // var str2= 'abcd';
+    // var p1 =new RegExp('ab','g')
+    // console.log(p1.test(str2));
+    // var a=/http:(www)\.(baidu)\.com/g;
+    /*  var a=/(z.+e)/g;
+      console.log(a.test('http:www.baiduzhanggecom'))
+      console.log(RegExp.$1)
+      // console.log(RegExp.$2)
+      var b='he12lli'.replace(/\d+/g,'ooo')
+      console.log(b)
+      re=/2/g;
+      console.log(re.exec(1234567152))*/
+
+    var re = /hello/g;
+    var res = 'hello world hello you'.match(re)
+    console.log(res)
+    console.log(res.__proto__.constructor === Array);
+    console.log(res.__proto__ === Array.prototype);
+    console.log(res.constructor === Array)
+    
+
+
+</script>
+
+</body>
+</html>

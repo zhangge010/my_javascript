@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="js/namespace.js"></script>
+<script type="text/javascript" src="js/namespace_sub.js"></script>
+<script type="text/javascript">
+    /*var b={
+        name:'mjj',
+        age:30,
+    }
+    var p1= new namespace.PersonInfo(b);
+    console.log(p1)
+    namespace.PersonInfoUtil.show(b)*/
+
+    var cat = new namespace.sub.Cat('阿黄','red');
+    console.log(cat.name)
+    console.log(cat.color)
+    cat.sleep();
+    console.log(cat);
+
+</script>
+</body>
+</html>

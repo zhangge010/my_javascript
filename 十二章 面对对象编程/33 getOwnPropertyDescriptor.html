@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            position: relative;
+        }
+        .item{
+            position: absolute;
+            width: 500px;
+            height: 100px;
+            border-top-width: 10px;
+            border-color: #0000FF;
+            border-style: solid;
+            top: 50px;
+            left: 50%;
+            margin-left: -250px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 40px;
+        }
+    </style>
 </head>
-<body>
+<body id="body">
+<div class="item" id="now"></div>
 <script type="text/javascript">
     //getOwnPropertyDescriptor 可以获取属性描述对象，他的第一个参数是目标
     // 对象，第二个参数是一个字符串（目标对象的属性名）
@@ -14,6 +38,40 @@
     console.log(Object.getOwnPropertyDescriptor(obj,'a'))
     console.log(Object.getOwnPropertyDescriptor(obj,'a').writable)
     console.log(obj)
+    console.log(obj.a)
+    console.log(Object.getOwnPropertyDescriptor(obj,'a').writable)
+    function Time() {
+        var a = new Date();
+        var year=a.getFullYear();
+        var month=parseInt(a.getMonth())+1;
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes();
+        var seconds = a.getSeconds();
+        if (seconds<10){
+            seconds = '0'+ seconds.toString()
+        } else {
+            seconds=seconds;
+        }
+        var today=year+'-'+month+'-'+date+' '+hour+':'+min+':'+seconds
+        var now=document.getElementById('now')
+
+        now.innerHTML = today
+    }
+    // var timer = setInterval(Time,1000);
+
+    var body=document.getElementById('body');
+    var now=document.getElementById('now')
+    var a=document.createElement('div')
+    // a.setAttribute('id','divId')
+    a.className = 'aaaaaa'
+    // console.log(body)
+    // body.insertBefore(a,now)
+    // body.insertAfter(a,now)
+    // body.append()
+    // console.log(a.parentNode===body)
+    // now.appendChild(a)
+
 </script>
 </body>
 </html>
