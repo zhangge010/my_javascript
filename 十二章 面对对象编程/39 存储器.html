@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var obj=Object.defineProperty({},'p',{
+        get:function () {
+            return 'getter';
+        },
+        set:function (v) {
+            console.log(v)
+        }
+    })
+    console.log(obj.p)
+    obj.p=123
+    /*var obj= {
+        get p(){
+            return 'getter'
+        },
+        set p(value){
+            console.log('setter:'+value)
+        },
+    }
+    console.log(obj.p)
+    obj.p=123;*/
+</script>
+
+</body>
+</html>
