@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*function randomNub(aArray, len, min, max) {
+        for (var i=0;i<len;i++){
+            var nowNub = parseInt(Math.random() * (max - min - 1)) + (min + 1);
+            aArray.push(nowNub)
+        } ;
+        aArray.sort(function (a,b) {
+            return a-b
+        })
+
+        return aArray;
+    }
+        var arr = [];
+        var res=randomNub(arr, 10, 10, 100);
+        console.log(res)
+
+    var arr1=[1,2,3];
+    var arr2=[4,5,6];
+    var carr=arr1.concat(arr2)
+    console.log(carr.splice(1,2))
+    console.log(carr)
+    var a=carr.slice(2,4)
+    console.log(a)
+*/
+    function serilizeUrl(url) {
+        var urlObject={};
+        if (/\?/.test(url)){
+            var urlString = url.slice(url.indexOf('?')+1);
+            var urlArray=urlString.split('&');
+            for (var i=0;i<urlArray.length;i++){
+                var item = urlArray[i].split('=')
+                urlObject[item[0]]=item[1];
+            }
+            return urlObject
+        }
+        return '输入的url格式错误'
+    }
+    var res = serilizeUrl('bahj?a=1&b=2&c=1&d=9')
+    console.log(res)
+    function clearTrim(str) {
+        console.log(str.replace(/^\s+/g,"".replace(/\s+$/g),""))
+    }
+    clearTrim('              zhang  ge   ');
+
+
+
+    var a=undefined ,b=NaN;//NaN
+    var a='123',b=NaN//123NaN
+    var a=undefined,b=NaN//NaN
+    var a=NaN,b='undefined'//NaNundefined
+    var a=null,b=NaN
+    console.log(a+b)
+    console.log(Array.isArray((1,3)))
+    console.log(9||3)
+    function add(arr) {
+        var sum=0;
+        for (var i=0;i<arr.length;i++){
+             sum+=arr[i];
+         }
+        return sum;
+    };
+    console.log(add([1,2,3,4,5,6,7,8,9]))
+</script>
+
+</body>
+</html>
