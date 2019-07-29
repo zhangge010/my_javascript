@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    .clearFix:after{
+        content: "";
+        clear: both;
+        display: block;
+        height: 0;
+    }
+    /*.clearFix{*/
+        /*!*overflow: hidden;*!*/
+        /*height: 30px;*/
+    /*}*/
+</style>
 <body>
+<!--
 <input type="text"  onkeyup="value=value.replace(/[^\d]/g, '').replace(/^0{1,}/g,'')" />
 输入手机号码：<input type="text" id="box">
 <script type="text/javascript">
@@ -29,6 +42,12 @@
     //     }
     // }
 </script>
+-->
+<div class="clearFix" >
+    <div style="width: 50px;height: 30px; background-color: #666666;float: left;;"></div>
+    <div style="width: 50px;height: 30px; background-color: goldenrod;float: left;"></div>
+</div>
+<div style="width: 100px; height: 30px; background-color: blue;"></div>
 
 </body>
 </html>
