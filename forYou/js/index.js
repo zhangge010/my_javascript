@@ -101,27 +101,27 @@ window.onload = function () {
     // 7.开启定时器，自动轮播
     timer = setInterval(autoPlay,2000)
     //直接调用下一张函数
-    // function autoPlay(){
-    //     startAnimation(allBoxs[iNow],{
-    //         'left':-scroll_w
-    //     })
-    //     //让iNow更新
-    //     iNow++;
-    //     if(iNow>=allBoxs.length){
-    //         iNow=0;
-    //     }
-    //     allBoxs[iNow].style.left = scroll_w +'px';
-    //     startAnimation(allBoxs[iNow],{
-    //         'left':0
-    //     })
-    //     //改变索引
-    //     changeIndex();
-    // }
-    // slider_main.onmouseover=function(){
-    //     clearInterval(timer)
-    // }
-    // slider_main.onmouseout=function(){
-    //     timer=setInterval(autoPlay,2000)
-    // }
+    function autoPlay(){
+        startAnimation(allBoxs[iNow],{
+            'left':-scroll_w
+        })
+        //让iNow更新
+        iNow++;
+        if(iNow>=allBoxs.length){
+            iNow=0;
+        }
+        allBoxs[iNow].style.left = scroll_w +'px';
+        startAnimation(allBoxs[iNow],{
+            'left':0
+        })
+        //改变索引
+        changeIndex();
+    }
+    slider_main.onmouseover=function(){
+        clearInterval(timer)
+    }
+    slider_main.onmouseout=function(){
+        timer=setInterval(autoPlay,2000)
+    }
 
 }
